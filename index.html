@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Cache setting -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="expires" content="0">
+
+  <!-- Preview -->
+  <title>DD Tools</title>
+  <!-- Preview: Primary Meta Tags -->
+  <meta name="title" content="Arce0406 | DD Tools">
+  <meta name="description"
+    content="Use WebRTC, capture the signal from the capture card and display it on the web page.">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body class="has-background-light">
+
+  <!-- Modal: Add -->
+  <div class="modal" id="modal_tag_add">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <span class="material-symbols-outlined mr-2">
+          add
+        </span>
+        <p class="modal-card-title">
+          Add
+        </p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+
+      </section>
+      <footer class="modal-card-foot is-justify-content-end">
+        <button class="button">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Modal: Edit -->
+  <div class="modal" id="modal_tag_edit">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <span class="material-symbols-outlined mr-2">
+          edit
+        </span>
+        <p class="modal-card-title">
+          Add
+        </p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+
+      </section>
+      <footer class="modal-card-foot is-justify-content-end">
+        <button class="button">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar main-navbar has-border shadow-light is-fixed-top">
+    <div class="navbar-brand">
+      <a class="navbar-item title mb-0" href="#">
+        DD Tools
+      </a>
+      <div class="navbar-burger" data-target="navMenuColordark-example">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="tabs is-toggle">
+            <ul>
+              <li data-target="section1" data-group="section"><a>コール Storage</a></li>
+              <li class="is-active" data-target="section2" data-group="section"><a>Twitter Spaces CC Expander</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- section: コール Storage -->
+  <section class="section tab-panel" id="section1" data-group="section">
+    <main class="box">
+
+      <!-- Title & Toolbar -->
+      <div class="field is-grouped">
+        <p class="control title is-4 is-expanded">
+          コール Storage
+        </p>
+        <p class="control">
+          <button class="button is-white mb-0">
+            <span class="icon">
+              <i class="material-symbols-outlined">
+                share
+              </i>
+            </span>
+          </button>
+        </p>
+      </div>
+
+      <!-- Search bar -->
+
+      <p class="control has-icons-left is-expanded">
+        <input class="input" type="text" placeholder="Conditions">
+        <span class="icon is-small is-left">
+          <span class="material-symbols-outlined mr-0">
+            search
+          </span>
+        </span>
+      </p>
+
+      <hr>
+
+      <!-- Items -->
+      <div class="columns is-multiline block p-3">
+
+        <div class="column is-3">
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <div class="is-flex is-justify-content-space-between is-align-content-center">
+                  <p class="title is-4">
+                    Add
+                  </p>
+                  <button class="button is-white" aria-label="edit">
+                    <span class="icon">
+                      <i class="material-symbols-outlined">
+                        add
+                      </i>
+                    </span>
+                  </button>
+                </div>
+                Add New Item
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column is-3">
+          <div class="card">
+            <div class="card-content">
+              <div class="is-flex">
+                <p class="title is-4 is-flex-grow-1">
+                  Clap
+                </p>
+                <button class="button is-white" aria-label="edit">
+                  <span class="icon">
+                    <i class="material-symbols-outlined">
+                      edit
+                    </i>
+                  </span>
+                </button>
+                <button class="button is-white">
+                  <span class="icon is-small">
+                    <i class="material-symbols-outlined">
+                      content_copy
+                    </i>
+                  </span>
+                </button>
+              </div>
+              <div class="content">
+                👏👏👏
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </main>
+
+  </section>
+
+  <!-- section: Twitter Spaces CC Expander -->
+  <section class="section tab-panel is-active" id="section2" data-group="section">
+    <main class="box has-background-white">
+
+      <div class="content">
+        <p class="title is-4">Twitter Spaces CC Expander</p>
+        <p>Enlarge the caption area of Twitter spaces, only works on Twitter (browser page) for pc.</p>
+        <ol>
+          <li>Copy the script below.</li>
+          <li>Go to the Twitter page.</li>
+          <li>Open a Twitter spaces, and make sure there is already have subtitle shows.</li>
+          <p>(This script will not work if automatic subtitle translation (cc) is not enabled, or if the translated subtitles are not yet available.)</p>
+          <li>Press "F12" to open the "Developer Tools".</li>
+          <li>Find the "console" in Developer Tools.</li>
+          <li>Paste the script and click "Enter" to execute it.</li>
+          <li>Now the subtitles will be enlarged and displayed on the side.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Script
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <textarea id="tb_cc_script" class="textarea" rows="13" disabled>
+
+            try {
+                  let listbox = document.querySelector('div[role="listbox"]');
+                  let cc_parent = listbox.parentElement.parentElement;
+                  cc_parent.style.position = "fixed";
+                  cc_parent.style.height = "100%";
+                  cc_parent.style.top = "0";
+                  cc_parent.style.left = "-100%";
+                  cc_parent.style.borderWidth = "1px";
+            } catch (e) {
+                  console.log(e);
+            }
+            </textarea>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <a id="btn_cc_script" class="card-footer-item">
+            <span class="icon is-small mr-3">
+              <i class="material-symbols-outlined">
+                content_copy
+              </i>
+            </span>
+            <span>Copy</span>
+          </a>
+        </footer>
+      </div>
+
+
+    </main>
+
+  </section>
+
+  <!-- Lib: JQuery -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+
+  <div id="notifiy" class="notification-wrapper">
+    <div class="notification is-info">
+      <button class="delete"></button>
+      Copied!      
+    </div>
+  </div>
+
+  <script src="js/message.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/tab.js"></script>
+  <script src="js/panel.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/main2.js"></script>
+</body>
+
+</html>

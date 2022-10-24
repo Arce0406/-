@@ -1,0 +1,103 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  padding-top: 64px;
+}
+
+.is-fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.vr {
+  height: 100%;
+  font-size: 24px;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+/*
+    Material Icon
+*/
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  /* margin-right: 0.5rem; */
+}
+
+/*
+    tab 
+*/
+.tab-contents {
+  position: relative;
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.is-active {
+  display: block;
+}
+
+/*
+    navbar 
+*/
+
+.main-navbar {
+  height: 64px;
+}
+
+.shadow-light {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  color: #4a4a4a;
+}
+
+.has-border {
+  border: solid #d8d8d8;
+  border-width: 0 0 0 1px;
+}
+
+/*
+    section 
+*/
+section {
+  min-height: 100%;
+  width: 100%;
+  display: none;
+}
+
+/* .section.is-active{
+  display: block;
+} */
+
+/*
+    tag 
+*/
+/* .tag{
+  background-color: #fff !important;
+} */
+
+/*
+    notification 
+*/
+.notification-wrapper{
+  display: none;
+  user-select: none;
+  position: fixed;
+  bottom: 0em;
+  right: 25%;
+  width: 50%;
+}
