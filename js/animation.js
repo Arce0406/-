@@ -12,8 +12,9 @@ const option1 = {
   fill: "forwards",
 };
 
-function showCopied() {
+function notifiy(text){
   let n = document.getElementById("notifiy");
+  document.querySelector("#notifiy div p").textContent = text;
   n.style.display = "block";
   //   let r = await n.animate(keyframe1, option1).finished;
   let a1 = n.animate(keyframe1, option1);
@@ -27,3 +28,5 @@ function showCopied() {
     }, 5000);
   };
 }
+
+export { notifiy };

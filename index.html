@@ -25,11 +25,14 @@
 
 <body class="has-background-light">
 
-  <!-- Modal: Add -->
-  <div class="modal" id="modal_tag_add">
+  <!-- Modal: Share -->
+
+  <!-- Modal: Tag add/edit -->
+  <div class="modal" id="modal_tag" data-mode="">
     <div class="modal-background"></div>
     <div class="modal-card">
-      <header class="modal-card-head">
+      <!-- modal card header -->
+      <header class="modal-card-head is-add-mode">
         <span class="material-symbols-outlined mr-2">
           add
         </span>
@@ -38,20 +41,7 @@
         </p>
         <button class="delete" aria-label="close"></button>
       </header>
-      <section class="modal-card-body">
-
-      </section>
-      <footer class="modal-card-foot is-justify-content-end">
-        <button class="button">Close</button>
-      </footer>
-    </div>
-  </div>
-
-  <!-- Modal: Edit -->
-  <div class="modal" id="modal_tag_edit">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
+      <header class="modal-card-head is-edit-mode d-none">
         <span class="material-symbols-outlined mr-2">
           edit
         </span>
@@ -60,35 +50,37 @@
         </p>
         <button class="delete" aria-label="close"></button>
       </header>
-      <section class="modal-card-body">
-
+      <!-- modal card body -->
+      <div class="modal-card-body">
         <div class="field">
           <label class="label">Title</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Text input">
+            <input id="modal_input_title" class="input" type="text" placeholder="Text input">
           </div>
         </div>
-
         <div class="field">
           <label class="label">Content</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Text input">
+            <input id="modal_input_content" class="input" type="text" placeholder="Text input">
           </div>
         </div>
-
-
-      </section>
-      <footer class="modal-card-foot is-justify-content-end">
-        <button class="button is-danger is-outlined">
-          <span>Delete</span>
-          <span class="icon is-small">
-            <i class="material-symbols-outlined">
-              delete
-            </i>
-          </span>          
-        </button>
-        <button class="button is-success">Save changes</button>
-        <button class="button">Cancel</button>
+      </div>
+      <!-- modal card footer -->
+      <footer class="modal-card-foot is-justify-content-space-between">
+        <div class="left">
+          <button class="button btn-delete is-danger is-outlined is-edit-mode d-none">
+            <span>Delete</span>
+            <span class="icon is-small">
+              <i class="material-symbols-outlined">
+                delete
+              </i>
+            </span>
+          </button>
+        </div>
+        <div class="right">
+          <button class="button btn-save is-success">Save changes</button>
+          <button class="button btn-cancel">Cancel</button>
+        </div>
       </footer>
     </div>
   </div>
@@ -132,9 +124,18 @@
       <div class="field is-grouped">
         <p class="control title is-4 is-expanded">
           コール Storage
+        </p>        
+        <p class="control d-none">
+          <a id="btn-download" class="button is-white mb-0">
+            <span class="icon">
+              <i class="material-symbols-outlined">
+                download
+              </i>
+            </span>
+          </a>
         </p>
         <p class="control">
-          <button class="button is-white mb-0">
+          <button id="btn-share" class="button is-white mb-0">
             <span class="icon">
               <i class="material-symbols-outlined">
                 share
@@ -146,7 +147,7 @@
 
       <!-- Search bar -->
       <p class="control has-icons-left is-expanded">
-        <input class="input" type="text" placeholder="Conditions">
+        <input id="input_search" class="input" type="text" placeholder="Conditions">
         <span class="icon is-small is-left">
           <span class="material-symbols-outlined mr-0">
             search
@@ -158,8 +159,9 @@
 
       <!-- Items -->
       <div id="call-blocks" class="columns is-multiline block p-3">
-
-        <div class="column is-3">
+        
+        <!-- Items add -->
+        <div class="column is-3 is-func">
           <div class="card">
             <div class="card-content">
               <div class="content">
@@ -167,7 +169,7 @@
                   <p class="title is-4">
                     Add
                   </p>
-                  <button class="button is-white" aria-label="edit">
+                  <button class="button is-white btn-add" aria-label="edit">
                     <span class="icon">
                       <i class="material-symbols-outlined">
                         add
@@ -181,7 +183,7 @@
           </div>
         </div>
 
-        <div class="column is-3">
+        <div class="column is-3 is-public">
           <div class="card" data-title="Clap" data-content="👏👏👏">
             <div class="card-content">
               <div class="is-flex">
@@ -212,7 +214,6 @@
 
       </div>
 
-
     </main>
 
   </section>
@@ -228,7 +229,8 @@
           <li>Copy the script below.</li>
           <li>Go to the Twitter page.</li>
           <li>Open a Twitter spaces, and make sure there is already have subtitle shows.</li>
-          <p>(This script will not work if automatic subtitle translation (cc) is not enabled, or if the translated subtitles are not yet available.)</p>
+          <p>(This script will not work if automatic subtitle translation (cc) is not enabled, or if the translated
+            subtitles are not yet available.)</p>
           <li>Press "F12" to open the "Developer Tools".</li>
           <li>Find the "console" in Developer Tools.</li>
           <li>Paste the script and click "Enter" to execute it.</li>
@@ -278,23 +280,22 @@
 
   </section>
 
-   <!-- notification -->
+  <!-- notification -->
   <div id="notifiy" class="notification-wrapper">
     <div class="notification is-info">
       <button class="delete"></button>
-      Copied!      
+      <p></p>
     </div>
   </div>
 
   <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script src="js/animation.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
   <script src="js/message.js"></script>
-  <script src="js/modal.js"></script>
   <script src="js/tab.js"></script>
   <script src="js/panel.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/main2.js"></script>
+  <script type="module" src="main.js"></script>
+  <script src="main2.js"></script>
 </body>
 
 </html>
