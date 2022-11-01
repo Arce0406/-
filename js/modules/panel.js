@@ -1,6 +1,6 @@
 /**
  * https://github.com/federicomassi/Bulma-Addons
- * @param {*} label 
+ * @param {*} label
  */
 function panelDigger(label) {
   var y = document.querySelectorAll(".panel-tab");
@@ -20,3 +20,5 @@ function panelDigger(label) {
     w[i].classList.remove("is-hidden");
   }
 }
+
+export { panelDigger };

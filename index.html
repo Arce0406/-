@@ -25,7 +25,80 @@
 
 <body class="has-background-light">
 
-  <!-- Modal: Share -->
+  <!-- Modal: Merge & Import -->
+  <div class="modal" id="modal_import" data-mode="">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+
+      <!-- modal card header -->
+      <header class="modal-card-head">
+        <span class="material-symbols-outlined mr-2">
+          mediation
+        </span>
+        <p class="modal-card-title">
+          Import
+        </p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+
+      <!-- modal card body -->
+      <div class="modal-card-body">
+
+        <div class="block">
+
+          <div class="is-flex is-justify-content-space-around">
+            <p class="title">
+              Old
+            </p>
+            <p class="title">
+              New
+            </p>
+          </div>
+
+          <hr class="mt-0">
+
+          <div class="radio-item-row">
+            <label class="radio-item box">
+              <p>
+                <strong>Title</strong>
+                <br>
+                Content
+              </p>
+              <input type="radio" name="a1">
+            </label>
+            <label class="radio-item box">
+              <p>
+                <strong>Title</strong>
+                <br>
+                Content
+              </p>
+              <input type="radio" name="a1" checked>
+            </label>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- modal card footer -->
+      <footer class="modal-card-foot is-justify-content-space-between">
+        <div class="left">
+          <button class="button is-danger is-outlined is-edit-mode d-none">
+            <span>Delete</span>
+            <span class="icon is-small">
+              <i class="material-symbols-outlined">
+                delete
+              </i>
+            </span>
+          </button>
+        </div>
+        <div class="right">
+          <button class="button btn-save is-success">Save changes</button>
+          <button class="button btn-cancel">Cancel</button>
+        </div>
+      </footer>
+
+    </div>
+  </div>
 
   <!-- Modal: Tag add/edit -->
   <div class="modal" id="modal_tag" data-mode="">
@@ -91,14 +164,14 @@
       <a class="navbar-item title mb-0" href="#">
         DD Tools
       </a>
-      <div class="navbar-burger" data-target="navMenuColordark-example">
+      <div class="navbar-burger" data-target="navMenuMain">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
 
-    <div class="navbar-menu">
+    <div id="navMenuMain" class="navbar-menu">
       <div class="navbar-start">
 
       </div>
@@ -124,12 +197,21 @@
       <div class="field is-grouped">
         <p class="control title is-4 is-expanded">
           コール Storage
-        </p>        
+        </p>
         <p class="control d-none">
           <a id="btn-download" class="button is-white mb-0">
             <span class="icon">
               <i class="material-symbols-outlined">
                 download
+              </i>
+            </span>
+          </a>
+        </p>
+        <p class="control">
+          <a id="btn-import" class="button is-white mb-0">
+            <span class="icon">
+              <i class="material-symbols-outlined">
+                mediation
               </i>
             </span>
           </a>
@@ -159,7 +241,7 @@
 
       <!-- Items -->
       <div id="call-blocks" class="columns is-multiline block p-3">
-        
+
         <!-- Items add -->
         <div class="column is-3 is-func">
           <div class="card">
@@ -290,12 +372,13 @@
 
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>  
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="js/navbar.js"></script>
   <script src="js/message.js"></script>
   <script src="js/tab.js"></script>
   <script src="js/panel.js"></script>
-  <script type="module" src="main.js"></script>
-  <script src="main2.js"></script>
+  <script type="module" src="./js/main.js"></script>
+  <script type="module" src="./js/main2.js"></script>
 </body>
 
 </html>

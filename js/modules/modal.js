@@ -1,5 +1,19 @@
-// Functions to open and close a modal
-function openModal($el, card) {
+function closeModal($el) {
+  $el.classList.remove("is-active");
+}
+
+function closeAllModals() {
+  (document.querySelectorAll(".modal") || []).forEach(($modal) => {
+    closeModal($modal);
+  });
+}
+
+function openModal($el) {
+  // modal
+  $el.classList.add("is-active");
+}
+
+function openModal_card($el, card) {
   // delete button
   let btn_delete = $el.querySelector("button.btn-delete");
   if (
@@ -26,7 +40,7 @@ function openModal_add($el, card) {
   (document.querySelectorAll(".is-edit-mode") || []).forEach(($trigger) => {
     $trigger.classList.add("d-none");
   });
-  openModal($el, card);
+  openModal_card($el, card);
 }
 
 function openModal_edit($el, card, title, content) {
@@ -41,17 +55,7 @@ function openModal_edit($el, card, title, content) {
   (document.querySelectorAll(".is-edit-mode") || []).forEach(($trigger) => {
     $trigger.classList.remove("d-none");
   });
-  openModal($el, card);
-}
-
-function closeModal($el) {
-  $el.classList.remove("is-active");
-}
-
-function closeAllModals() {
-  (document.querySelectorAll(".modal") || []).forEach(($modal) => {
-    closeModal($modal);
-  });
+  openModal_card($el, card);
 }
 
 function modalOnLoaded() {
@@ -66,8 +70,6 @@ function modalOnLoaded() {
   });
 
   // Add a click event on various child elements to close the parent modal
-  // .button:not(.btn-delete)
-  // Footer 跟 Button 排除 > , .modal-card-foot .button
   (
     document.querySelectorAll(
       ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button:is(.btn-cancel)"
@@ -93,4 +95,10 @@ function modalOnLoaded() {
 
 // document.addEventListener("DOMContentLoaded", () => {});
 
-export { modalOnLoaded, openModal_add, openModal_edit, closeAllModals };
+export {
+  modalOnLoaded,
+  closeAllModals,
+  openModal,
+  openModal_add,
+  openModal_edit,
+};

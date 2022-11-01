@@ -2,9 +2,9 @@
  * https://ithelp.ithome.com.tw/articles/10280490
  */
 
-import * as StorageAPI from "./js/storage.js";
-import * as AnimateAPI from "./js/animation.js";
-import * as ModalAPI from "./js/modal.js";
+import * as StorageAPI from "./modules/storage.js";
+import * as AnimateAPI from "./modules/animation.js";
+import * as ModalAPI from "./modules/modal.js";
 let current_mode = "";
 /** Click: copy text */
 function card_copy(isPrivete) {
@@ -243,6 +243,10 @@ function merge(){
   for(const entry of urlParams.entries()) {
     console.log(`${entry[0]}: ${entry[1]}`);
   }
+
+  document.getElementById('btn-import').addEventListener('click',function(){
+    ModalAPI.openModal(document.getElementById('modal_import'));
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

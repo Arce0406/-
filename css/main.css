@@ -93,7 +93,7 @@ section {
 /*
     notification 
 */
-.notification-wrapper{
+.notification-wrapper {
   display: none;
   user-select: none;
   position: fixed;
@@ -101,3 +101,45 @@ section {
   right: 25%;
   width: 50%;
 }
+
+/*
+    radio item：merge import/current storage items 
+*/
+.radio-item-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+label.radio-item {
+  cursor: pointer;
+  position: relative;
+  width: 50%;
+  margin: 5px;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  line-height: 24px;
+}
+
+.radio-item:has(> input[type='radio']:checked) {  
+  border: solid 1px #3a74b5;
+  background-color: #eaf4fe;
+  transition-timing-function: linear;
+  line-height: 23px;
+}
+
+/* .radio-item:has(> input[type='radio']:checked):after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: solid 1px #3a74b5;
+  background-color: #eaf4fe;
+  transition-timing-function: linear;
+} */
