@@ -57,25 +57,23 @@
 
           <hr class="mt-0">
 
-          <div id="radio-list">
-            <!-- <div class="radio-item-row">
-              <label class="radio-item box">
-                <p>
-                  <strong>Title</strong>
-                  <br>
-                  Content
-                </p>
-                <input type="radio" name="a1">
-              </label>
-              <label class="radio-item box">
-                <p>
-                  <strong>Title</strong>
-                  <br>
-                  Content
-                </p>
-                <input type="radio" name="a1" checked>
-              </label>
-            </div> -->
+          <div class="radio-item-row">
+            <label class="radio-item box">
+              <p>
+                <strong>Title</strong>
+                <br>
+                Content
+              </p>
+              <input type="radio" name="a1">
+            </label>
+            <label class="radio-item box">
+              <p>
+                <strong>Title</strong>
+                <br>
+                Content
+              </p>
+              <input type="radio" name="a1" checked>
+            </label>
           </div>
 
         </div>
@@ -209,7 +207,7 @@
             </span>
           </a>
         </p>
-        <p class="control d-none">
+        <p class="control">
           <a id="btn-import" class="button is-white mb-0">
             <span class="icon">
               <i class="material-symbols-outlined">
@@ -302,68 +300,6 @@
 
   </section>
 
-  <!-- section: Twitter Spaces CC Expander -->
-  <section class="section tab-panel" id="section2" data-group="section">
-    <main class="box has-background-white">
-
-      <div class="content">
-        <p class="title is-4">Twitter Spaces CC Expander</p>
-        <p>Enlarge the caption area of Twitter spaces, only works on Twitter (browser page) for pc.</p>
-        <ol>
-          <li>Copy the script below.</li>
-          <li>Go to the Twitter page.</li>
-          <li>Open a Twitter spaces, and make sure there is already have subtitle shows.</li>
-          <p>(This script will not work if automatic subtitle translation (cc) is not enabled, or if the translated
-            subtitles are not yet available.)</p>
-          <li>Press "F12" to open the "Developer Tools".</li>
-          <li>Find the "console" in Developer Tools.</li>
-          <li>Paste the script and click "Enter" to execute it.</li>
-          <li>Now the subtitles will be enlarged and displayed on the side.</li>
-        </ol>
-      </div>
-
-      <div class="card">
-        <header class="card-header">
-          <p class="card-header-title">
-            Script
-          </p>
-        </header>
-        <div class="card-content">
-          <div class="content">
-            <textarea id="tb_cc_script" class="textarea" rows="13" disabled>
-
-            try {
-                  let listbox = document.querySelector('div[role="listbox"]');
-                  let cc_parent = listbox.parentElement.parentElement;
-                  cc_parent.style.position = "fixed";
-                  cc_parent.style.height = "100%";
-                  cc_parent.style.top = "0";
-                  cc_parent.style.left = "-100%";
-                  cc_parent.style.borderWidth = "1px";
-                  console.log('done.');
-            } catch (e) {
-                  console.log(e);
-            }
-            </textarea>
-          </div>
-        </div>
-        <footer class="card-footer">
-          <a id="btn_cc_script" class="card-footer-item">
-            <span class="icon is-small mr-3">
-              <i class="material-symbols-outlined">
-                content_copy
-              </i>
-            </span>
-            <span>Copy</span>
-          </a>
-        </footer>
-      </div>
-
-
-    </main>
-
-  </section>
-
   <!-- notification -->
   <div id="notifiy" class="notification-wrapper">
     <div class="notification is-info">
@@ -378,6 +314,7 @@
   <script src="js/navbar.js"></script>
   <script src="js/message.js"></script>
   <script src="js/tab.js"></script>
+  <script src="js/panel.js"></script>
   <script type="module" src="./js/main.js"></script>
   <script type="module" src="./js/main2.js"></script>
 </body>

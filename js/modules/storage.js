@@ -30,7 +30,7 @@ function addItem(title, content) {
   if (!title || !content) return "no input.";
 
   let items = getItems();
-  if (!items) items = { callitems: [] };
+  if (!items) items = {};
 
   //Object.entries(items).forEach(([k, v]) => (window[k] = v));
   // 若含相同key值，中止

@@ -6,6 +6,10 @@ body {
   padding-top: 64px;
 }
 
+.w-50{
+  width: 50%;
+}
+
 .is-fixed-top {
   position: fixed;
   top: 0;

@@ -215,8 +215,8 @@ function share() {
     let queryString = Object.keys(jsonobj)
       .map((key) => key + "=" + jsonobj[key])
       .join("&");
-    let url = encodeURI(`${window.location.href}?${queryString}`);
-
+    let url = `${window.location.origin}${window.location.pathname}?${queryString}`;
+    // let url = encodeURI(`${window.location.href}?${queryString}`);
     // url 在不同瀏覽器有長度限制，超過改為下載檔案
     if (url.length > 8000) {
       let jsonse = JSON.stringify(jsonobj);
@@ -236,17 +236,88 @@ function share() {
     }
   });
 }
-function merge(){
 
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  for(const entry of urlParams.entries()) {
-    console.log(`${entry[0]}: ${entry[1]}`);
+function Import() {
+  document.getElementById("btn-import").addEventListener("click", function () {
+    ModalAPI.openModal(document.getElementById("modal_import"));
+  });
+}
+
+function UrlLoad() {
+  // console.log(window.location.search);
+  if (window.location.search.length <= 0) return;
+  ImportCompare();
+}
+
+function ImportCompare() {
+  function radioItemRow(index, key, old_v, new_v, display) {
+    if (!display) {
+      display = "d-none";
+    }
+    return `
+    <div class="radio-item-row ${display}">
+    <label class="radio-item box">
+      <p>
+        <strong>${key}</strong>
+        <br>
+        ${old_v}
+      </p>
+      <input type="radio" name="item${index}" data-key="${key}" data-value="${old_v}">
+    </label>
+    <label class="radio-item box">
+      <p>
+        <strong>${key}</strong>
+        <br>
+        ${new_v}
+      </p>
+      <input type="radio" name="item${index}" data-key="${key}" data-value="${new_v}" checked>
+    </label>
+  </div>`;
   }
 
-  document.getElementById('btn-import').addEventListener('click',function(){
-    ModalAPI.openModal(document.getElementById('modal_import'));
+  const items = StorageAPI.getItems();
+  let index = 0;
+  let new_key, new_value;
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  // for (const entry of urlParams.entries()) {
+  //   new_key = decodeURI(entry[0]);
+  //   new_value = decodeURI(entry[1]);
+  //   console.log(`${new_key}: ${new_value}`);
+  //   console.log(`${entry[0]}: ${entry[1]}`);
+  // }
+
+  Object.entries(items).forEach(([k, v]) => {
+    // example.hasOwnProperty('prop');
+    new_value = urlParams.get(k);
+    index++;
+    if (urlParams.has(k) && new_value != v) {
+      $("#radio-list").append(radioItemRow(index, k, v, new_value, true));
+    } else {
+      $("#radio-list").append(radioItemRow(index, k, v, new_value, false));
+    }
   });
+  ModalAPI.openModal(document.getElementById("modal_import"));
+}
+
+function MergeSave() {
+  //"#modal_import > .modal-card > footer.modal-card-foot >.right> button.btn-save"
+  document
+    .querySelector("#modal_import button.btn-save")
+    .addEventListener("click", function () {
+      let items = {};
+      // "#radio-list > .radio-item-row > .radio-item > input[type=radio]:checked"
+      document
+        .querySelectorAll("#radio-list input[type=radio]:checked")
+        .forEach((radio) => {
+          items[radio.dataset.key] = radio.dataset.value;
+        });
+      //
+      StorageAPI.saveItems(JSON.stringify(items));
+      AnimateAPI.notifiy("匯入完成。");
+      cardEventRegister();
+      document.getElementById("radio-list").textContent = "";
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -257,5 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cardEventRegister();
   search();
   share();
-  merge();
+  Import();
+  UrlLoad();
+  MergeSave();
 });
