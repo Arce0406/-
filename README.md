@@ -1,6 +1,9 @@
 # DD Tools
 https://arce0406.github.io/DD-Tools
 
+# Twitter Spaces CC Expander
+https://arce0406.github.io/DD-Tools/views/Twitter-Spaces-CC-Expander.html
+
 # TODO
 - Youtube 聊天室選取圖案區塊加大
 - Youtube Song Tagger
